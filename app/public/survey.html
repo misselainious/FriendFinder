@@ -169,11 +169,11 @@
     $("#submit").on("click", function(event) {
       event.preventDefault();
 
-        let answerArray = [parseInt($("#question1").val()), parseInt($("#question2").val()), parseInt($("#question3").val()), parseInt($("#question4").val()), parseInt($("#question5").val()), parseInt($("#question6").val()), parseInt($("#question7").val()), parseInt($("#question8").val()), parseInt($("#question9").val()), parseInt($("#question10").val())];
+        let answerArray = [parseFloat($("#question1").val()), parseFloat($("#question2").val()), parseFloat($("#question3").val()), parseFloat($("#question4").val()), parseFloat($("#question5").val()), parseFloat($("#question6").val()), parseFloat($("#question7").val()), parseFloat($("#question8").val()), parseFloat($("#question9").val()), parseFloat($("#question10").val())];
 
  var sum = 0;
  for (n of answerArray){
-sum += parseInt(n, 10);
+sum += parseFloat(n, 10);
  }
 
  var avg = sum/answerArray.length;
@@ -187,13 +187,21 @@ sum += parseInt(n, 10);
         answerAvg: avg
       };
   
-      
+      $.post("/api/friends", newFriend)
+        .then(function(data) {
+          console.log("add.html", data);
+          alert("Adding friend...");
+
+
+            //Clears Form:
+             $("#nameField").val("");
+             $("#imageField").val("");
+        });
   
       // This line is the magic. It"s very similar to the standard ajax function we used.
       // Essentially we give it a URL, we give it the object we want to send, then we have a "callback".
-      // The callback is the response of the server. In our case, we set up code in api-routes that "returns" true or false
-      // depending on if a tables is available or not.
-  
+      // The callback is the response of the server. In our case, we set up code in api-routes that "returns" a friend.
+ 
     //   $.post("/api/tables", newReservation,
     //     function(data) {
   
