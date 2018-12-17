@@ -138,37 +138,6 @@
                     </select>
                 </div>
 
-                <div class="form-group col-9">
-                    <label for="question2">Example select</label>
-                    <select class="form-control col-3" id="question2">
-                            <option>5 - strongly agree</option>
-                            <option>4</option>
-                            <option>3</option>
-                            <option>2</option>
-                            <option>1 - strongly disagree</option>
-                    </select>
-                </div>
-                <div class="form-group col-9">
-                    <label for="question2">Example select</label>
-                    <select class="form-control col-3" id="question2">
-                            <option>5 - strongly agree</option>
-                            <option>4</option>
-                            <option>3</option>
-                            <option>2</option>
-                            <option>1 - strongly disagree</option>
-                    </select>
-                </div>
-
-                <div class="form-group col-9">
-                    <label for="question2">Example select</label>
-                    <select class="form-control col-3" id="question2">
-                            <option>5 - strongly agree</option>
-                            <option>4</option>
-                            <option>3</option>
-                            <option>2</option>
-                            <option>1 - strongly disagree</option>
-                    </select>
-                </div>
                 <div class = "py-5">
                 <button type="submit" id="submit" class="btn btn-success border-0 px-5 py-3">Submit</button>
             </div>
@@ -200,18 +169,23 @@
     $("#submit").on("click", function(event) {
       event.preventDefault();
 
-        let answerAverage = [$("#question1").val(), $("#question2").val(), $("#question3").val(), $("#question4").val(), $("#question5").val(), $("#question6").val(), $("#question7").val(), $("#question8").val(), $("#question9").val(), $("#question10").val()];
+        let answerArray = [parseInt($("#question1").val()), parseInt($("#question2").val()), parseInt($("#question3").val()), parseInt($("#question4").val()), parseInt($("#question5").val()), parseInt($("#question6").val()), parseInt($("#question7").val()), parseInt($("#question8").val()), parseInt($("#question9").val()), parseInt($("#question10").val())];
 
+ var sum = 0;
+ for (n of answerArray){
+sum += parseInt(n, 10);
+ }
 
-//   console.log(answerAverage);
+ var avg = sum/answerArray.length;
+
+ console.log(avg);
   
-      // Here we grab the form elements
-    //   var newFriend = {
-    //     friendName: $("#nameField").val().trim(),
-    //     profileImage: $("#imageField").val().trim(),
-    //     customerEmail: $("#reserve-email").val().trim(),
-    //     customerID: $("#reserve-unique-id").val().trim()
-    //   };
+      //Here we grab the form elements
+      var newFriend = {
+        friendName: $("#nameField").val().trim(),
+        profileImage: $("#imageField").val().trim(),
+        answerAvg: avg
+      };
   
       
   
