@@ -187,11 +187,12 @@ sum += parseFloat(n, 10);
         answerAvg: avg
       };
   
-      $.post("/api/friends", newFriend)
-        .then(function(data) {
+      $.post("/api/friends", newFriend,
+        function(data) {
           console.log("add.html", data);
           alert("Adding friend...");
 
+//get the best match and display**
 
             //Clears Form:
              $("#nameField").val("");
