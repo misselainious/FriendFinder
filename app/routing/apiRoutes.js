@@ -2,7 +2,7 @@ var friendsData = require("../data/friends")
 
 
 // Displays all friends
-app.get("/api/friends", function(req, res) {
+app.get("https://friends-ec.herokuapp.com//api/friends", function(req, res) {
     return res.json(friendsData);
   });
   
