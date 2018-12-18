@@ -38,5 +38,4 @@ for (var i=0; i<friendsArray.length; i++){
     friendsArray.push(newFriend);
   
     res.json(friendsArray[match]);
-  })
-}
+  })}
