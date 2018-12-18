@@ -1,5 +1,7 @@
 var friendsData = require("../data/friends")
 
+module.exports = function(app){
+
 
 // Displays all friends
 app.get("/api/friends", function(req, res) {
@@ -36,4 +38,5 @@ for (var i=0; i<friendsArray.length; i++){
     friendsArray.push(newFriend);
   
     res.json(friendsArray[match]);
-  });
+  })
+}

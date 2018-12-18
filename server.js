@@ -14,13 +14,15 @@ app.use(express.json());
 
 // Routes
 // =============================================================
-app.get("/", function(req, res) {
-    res.sendFile(path.join(__dirname, "home.html"));
-  });
+require("./app/routing/apiRoutes")(app)
 
-  app.get("/survey", function(req, res) {
-    res.sendFile(path.join(__dirname, "survey.html"));
-  });
+// app.get("/", function(req, res) {
+//     res.sendFile(path.join(__dirname, "home.html"));
+//   });
+
+//   app.get("/survey", function(req, res) {
+//     res.sendFile(path.join(__dirname, "survey.html"));
+//   });
 
 // Starts the server to begin listening
 // =============================================================
