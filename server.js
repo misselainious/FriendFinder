@@ -15,11 +15,11 @@ app.use(express.json());
 // Routes
 // =============================================================
 app.get("/", function(req, res) {
-    res.sendFile(path.join(__dirname, "app/public/home"));
+    res.sendFile(path.join(__dirname, "home.html"));
   });
 
   app.get("/survey", function(req, res) {
-    res.sendFile(path.join(__dirname, "app/public/survey"));
+    res.sendFile(path.join(__dirname, "survey.html"));
   });
 
 // Starts the server to begin listening
