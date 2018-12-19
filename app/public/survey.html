@@ -20,7 +20,7 @@
         </div>
         <div class="row"></div>
 
-        <form class="pt-3">
+        <form id = "friend-form" class="pt-3">
             <div class="form-group col-8 mx-auto">
                 <label for="nameField">Your name</label>
                 <input type="text" class="form-control" id="nameField" placeholder="Mariah Carey">
@@ -29,7 +29,7 @@
             <div class="form-group col-8 mx-auto">
                 <label for="imageField">Link to a profile image for you (...don't worry, you can like, pick a duck or
                     something.)</label>
-                <input type="email" class="form-control" id="imageField">
+                <input type="text" class="form-control" id="imageField">
             </div>
 
             <div class="form-group col-9">
@@ -144,8 +144,35 @@
             </div>
         </form>
 
+        <!-- Modal to display best friend -->
+
+        <div id = "bf-modal" class="modal" tabindex="-1" role="dialog">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title">Ehmagawd! Your Best Friend!</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                        <h3 id= "match-name"></h3>
+                        <img id="match-img" src="" alt="image of best friend">
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                      <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+
+
+
     </div>
-    </div>
+ 
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -197,37 +224,20 @@
                 console.log("add.html", data);
                 alert("You've been added to our database! \nNow let's see who your best match is...");
 
-                //get the best match and display**
+                //Displays Best Friend Match
+                $("#match-name").text(data.friendName);
+                $("#match-img").attr("src", data.profileImage);
+
+                $("#bf-modal").modal("toggle");
 
                 //Clears Form:
-                $("#nameField").val("");
-                $("#imageField").val("");
+                $("#friend-form").val("");
+                // $("#nameField").val("");
+                // $("#imageField").val("");
+                // $("#quesion1").val("");
             });
 
-        // This line is the magic. It"s very similar to the standard ajax function we used.
-        // Essentially we give it a URL, we give it the object we want to send, then we have a "callback".
-        // The callback is the response of the server. In our case, we set up code in api-routes that "returns" a friend.
 
-        //   $.post("/api/tables", newReservation,
-        //     function(data) {
-
-        //       // If a table is available... tell user they are booked.
-        //       if (data) {
-        //         alert("Yay! You are officially booked!");
-        //       }
-
-        //       // If a table is available... tell user they on the waiting list.
-        //       else {
-        //         alert("Sorry you are on the wait list");
-        //       }
-
-        //       // Clear the form when submitting
-        //       $("#reserve-name").val("");
-        //       $("#reserve-phone").val("");
-        //       $("#reserve-email").val("");
-        //       $("#reserve-unique-id").val("");
-
-        //     });
 
     });
 </script>

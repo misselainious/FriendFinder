@@ -17,8 +17,7 @@ app.post("/api/friends", function(req, res) {
     var difference = 0;
     var match = 0;
 
-    console.log(newFriend);
-    console.log(friendsData);
+    
 
 for (var i=0; i<friendsData.length; i++){
     var score1 = parseFloat(newFriend.answerAvg);
@@ -29,13 +28,14 @@ for (var i=0; i<friendsData.length; i++){
         match = i;
     }
     else{
-        match = 0;
+        match = Math.floor(Math.random() * friendsData.length);
     }
 }
   
-    console.log(newFriend);
-  
+   
+    //Pushes response to database
     friendsData.push(newFriend);
-  
+    //Pushes best match to database
     res.json(friendsData[match]);
+    console.log(res.json(friendsData[match]));
   })}
