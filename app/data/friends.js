@@ -12,9 +12,9 @@ var friendsArray = [
       answerAvg: 5
     },
     {
-        friendName: "Beyonce",
-        profileImage: "https://media4.s-nbcnews.com/j/newscms/2018_32/1357979/beyonce-vogue-gold-today_180806-mainart_7a701d9522f097a15118e785249579d2.fit-760w.jpg",
-        answerAvg: 3.6
+      friendName: "Beyonce",
+      profileImage: "https://media4.s-nbcnews.com/j/newscms/2018_32/1357979/beyonce-vogue-gold-today_180806-mainart_7a701d9522f097a15118e785249579d2.fit-760w.jpg",
+      answerAvg: 3.6
       }
   ];
   
